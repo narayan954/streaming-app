@@ -1,5 +1,6 @@
+import { provideVideoStream, welcome } from "../controllers/home.controller";
+
 import { Router } from "express";
-import { welcome } from "../controllers/home.controller";
 
 class HomeRoutes {
   router = Router();
@@ -10,6 +11,7 @@ class HomeRoutes {
 
   intializeRoutes() {
     this.router.get("/", welcome);
+    this.router.get("/video", provideVideoStream);
   }
 }
 
