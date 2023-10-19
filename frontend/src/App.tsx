@@ -10,7 +10,10 @@ function App() {
         muted={false}
         autoPlay
       >
-        <source src="http://localhost:8080/video" type="video/mp4" />
+        <source
+          src={`${import.meta.env.VITE_BACKEND_URL}/video`}
+          type="video/mp4"
+        />
       </video>
     </>
   );
