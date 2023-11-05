@@ -2,6 +2,7 @@ import cors, { CorsOptions } from "cors";
 import express, { Application } from "express";
 
 import Routes from "./routes";
+import path from "path";
 
 export default class Server {
   constructor(app: Application) {
@@ -11,11 +12,12 @@ export default class Server {
 
   private config(app: Application): void {
     const corsOptions: CorsOptions = {
-      origin: "http://localhost:8081",
+      origin: "*",
     };
 
     app.use(cors(corsOptions));
     app.use(express.json());
+    app.use(express.static(path.join(process.cwd(), "public")));
     app.use(express.urlencoded({ extended: true }));
   }
 }

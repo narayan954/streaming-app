@@ -13,7 +13,7 @@ export function provideVideoStream(req: Request, res: Response): Response {
     res.status(400).send("Requires Range header");
     return res;
   }
-  const videoPath = path.resolve(__dirname, "../assets/vidio.mp4");
+  const videoPath = path.resolve(process.cwd(), "public/vidio.mp4");
   const videoSize = fs.statSync(videoPath).size;
   const CHUNK_SIZE = 10 ** 6;
   const start = Number(range?.replace(/\D/g, ""));
