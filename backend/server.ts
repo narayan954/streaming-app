@@ -4,13 +4,14 @@ import Server from "./src";
 import dotenv from "dotenv";
 
 dotenv.config();
+
 const app: Application = express();
 const server: Server = new Server(app);
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT, 10) : 8080;
 
 app
   .listen(PORT, "localhost", function () {
-    console.log(`Server is running on port ${PORT}.`);
+    console.log(`⚡️[server]: Server is running at Port:${PORT}`);
   })
   .on("error", (err: any) => {
     if (err.code === "EADDRINUSE") {
